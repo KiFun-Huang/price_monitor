@@ -15,5 +15,6 @@
 $ python3 main.py 
 
 # filename1 是获取url的文件  filename2是保存结果的文件
-$ python3 commandline.py filename1 filename2
+# option 只支持 lsdj gwd
+$ python3 commandline.py option filename1 filename2
 ```
