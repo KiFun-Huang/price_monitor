@@ -1,9 +1,6 @@
 from openpyxl import load_workbook, Workbook
 import os
 
-'''
-输出结果到目标文件，子类需实现其write()函数。
-'''
 class Writer():
     def __init__(self, filename):
         self.filename = filename[0]
