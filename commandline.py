@@ -6,7 +6,7 @@ import sys
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
-        print("Please enter two file names")
+        print("Please enter a parameter and two file names")
         print("The first file gets the URL.\nThe second file saves the results.")
         exit(1)
 
