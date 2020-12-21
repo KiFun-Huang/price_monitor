@@ -98,5 +98,5 @@ class SelenThief(Thief):
             "differ": '-'
         }
 
-        print(result)
+        # print(result)
         return result
