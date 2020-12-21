@@ -13,4 +13,3 @@ if __name__ == '__main__':
 
     thief = SelenThief(reader=reader, writer=writer)
     thief.handle()
-    

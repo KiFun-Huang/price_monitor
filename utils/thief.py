@@ -81,7 +81,7 @@ class SelenThief(Thief):
         targetURL = SelenThief.HOST + SelenThief.TREND_API + url
 
         SelenThief.driver.get(targetURL)
-        time.sleep(3)
+        SelenThief.driver.implicitly_wait(10)
         lowprice = SelenThief.driver.find_element_by_id("ymj-min").text
         lowdata = SelenThief.driver.find_element_by_id("ymj-min-date").text
         highprice = SelenThief.driver.find_element_by_class_name("current-price").text
