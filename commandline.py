@@ -1,4 +1,4 @@
-from utils.thief import *
+from utils.thief import SimpleThief, SelenThief
 from utils.reader import TxtReader,ExcelReader
 from utils.writer import TxtWriter,ExcelWriter
 from utils.util import is_valid, get_reader, get_writer
