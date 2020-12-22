@@ -4,7 +4,7 @@ from .reader import READER_CLASS
 from .writer import WRITER_CLASS
 
 DEFAULT_SUFFIX = ".xlsx"
-VALID_SUFFIX = [".txt", ".xlsx"]
+VALID_SUFFIX = [".txt", ".xlsx", ".csv",".email"] # TODO .email <- It's temporary
 
 def is_valid(filename):
     if isinstance(filename, str) and len(filename) > 0 and not filename.isspace():

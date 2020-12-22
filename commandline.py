@@ -1,6 +1,6 @@
 from utils.thief import SimpleThief, SelenThief
 from utils.reader import TxtReader,ExcelReader
-from utils.writer import TxtWriter,ExcelWriter
+from utils.writer import TxtWriter,ExcelWriter,EmailSender
 from utils.util import is_valid, get_reader, get_writer
 import sys
 

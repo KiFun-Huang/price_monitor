@@ -57,14 +57,6 @@ class CsvReader(Reader):
 
 READER_CLASS = {
     ".txt" : TxtReader.__name__,
-    ".xlsx" : ExcelReader.__name__
+    ".xlsx" : ExcelReader.__name__,
+    ".csv": CsvReader.__name__
 }
-
-
-
-
-if __name__ == '__main__':
-    print("Now you runing Reader.py")
-    # tester = CsvReader("ss.csv")
-    tester = ExcelReader("Price_kifun.xlsx")
-    print(tester.read())

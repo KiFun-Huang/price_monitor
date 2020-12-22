@@ -50,16 +50,31 @@ class TxtWriter(Writer):
     def save(self): 
         self.f.close()
 
-class Sendter(Writer):
-    def __init__(self, self_email):pass
+class EmailSender(Writer):
+    # TODO Change from target file to target mailbox
+    def __init__(self, filename):
+        super(EmailSender, self).__init__(filename)
+        self.content = ''
 
-    def write(self,data):pass
+    def write(self,data):
+        i = 0
+        for key in data:
+            value = data[key]
+            self.content += "%s:%s, " % (key , value)
+            i += 1
 
-    def send(self, targer_email):pass
+            if i == len(data):
+                self.content += "\n"
+
+                
+    def send(self):
+        # TODO Send self.content to corresponding mailbox
+        pass
 
 
 
 WRITER_CLASS = {
     ".txt" : TxtWriter.__name__,
-    ".xlsx" : ExcelWriter.__name__
+    ".xlsx" : ExcelWriter.__name__,
+    ".email": EmailSender.__name__  # TODO .email <- It's temporary
 }

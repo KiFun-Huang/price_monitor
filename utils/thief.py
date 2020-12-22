@@ -7,7 +7,6 @@ from openpyxl import load_workbook, Workbook
 
 import time
 
-# 类开头字母大写
 class Thief():
     def __init__(self, reader, writer):
         self.reader = reader
@@ -18,8 +17,7 @@ class Thief():
         for goodsURL in self.goods_url_list:
             try:
                 result = self.steal(goodsURL)
-            except Exception as e:
-                print(e)
+            except :
                 print("Failed to obtain goods information:", goodsURL)
                 continue
             print("Success:", result["title"])
@@ -27,7 +25,6 @@ class Thief():
 
         self.writer.save()
 
-    # 从目标获取数据源
     def steal(self, url):  return dict()
 
 class SimpleThief(Thief):
