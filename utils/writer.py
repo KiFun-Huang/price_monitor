@@ -18,7 +18,9 @@ class ExcelWriter(Writer):
     def write(self, data):
         sheet = self.workbook.active
         sheet.title = "Sheet1"
+        print(data)
         excel_column_index = list(range(2, len(data) + 2))
+        print(excel_column_index)
         goods = list(zip(excel_column_index, data))
         for index, goods_key in goods:
             sheet.cell(self.row, index).value = data[goods_key]
@@ -30,10 +32,23 @@ class ExcelWriter(Writer):
 class TxtWriter(Writer):
     def __init__(self, filename):
         super(TxtWriter, self).__init__(filename)
+        
 
-    def write(self, data): pass
+    def write(self, data): 
+        self.f = open(file=self.filename,mode="a+")
+        i = 0
+        for k in data:
+            v = data[k]
+            print(k,v)
+            self.f.write("%s:%s, " % (k , v))
+            i += 1
 
-    def save(self): pass
+            if i == len(data):
+                self.f.write("\n")
+            
+
+    def save(self): 
+        self.f.close()
 
 class Sendter(Writer):
     def __init__(self, self_email):pass
