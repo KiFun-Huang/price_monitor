@@ -36,11 +36,11 @@ class TxtWriter(Writer):
 
     def write(self, data): 
         self.f = open(file=self.filename,mode="a+")
+
         i = 0
-        for k in data:
-            v = data[k]
-            print(k,v)
-            self.f.write("%s:%s, " % (k , v))
+        for key in data:
+            value = data[key]
+            self.f.write("%s:%s, " % (key , value))
             i += 1
 
             if i == len(data):
