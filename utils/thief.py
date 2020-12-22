@@ -18,7 +18,8 @@ class Thief():
         for goodsURL in self.goods_url_list:
             try:
                 result = self.steal(goodsURL)
-            except:
+            except Exception as e:
+                print(e)
                 print("Failed to obtain goods information:", goodsURL)
                 continue
             print("Success:", result["title"])
@@ -81,22 +82,29 @@ class SelenThief(Thief):
         targetURL = SelenThief.HOST + SelenThief.TREND_API + url
 
         SelenThief.driver.get(targetURL)
-        SelenThief.driver.implicitly_wait(10)
+
+        # DEBUG Capture page images
+        # try:
+        #     SelenThief.driver.get_screenshot_as_file('./debug_page.png')
+        # except BaseException as msg:
+        #     print(msg)
+
+        SelenThief.driver.implicitly_wait(5)
+        title = SelenThief.driver.find_element_by_class_name("dp-title").text
+        source = SelenThief.driver.find_element_by_class_name("shop-name").text
         lowprice = SelenThief.driver.find_element_by_id("ymj-min").text
         lowdata = SelenThief.driver.find_element_by_id("ymj-min-date").text
         highprice = SelenThief.driver.find_element_by_class_name("current-price").text
-        # list1 = [lowdata.text,lowprice.text,highprice.text]
-        # html = driver.execute_script("return document.documentElement.outerHTML")
+        differ = float(highprice[1:]) - float(lowprice[11:])
 
 
         result = {
-            "title": '-',
-            "source": '-',
+            "title": title,
+            "source": source,
             "lowdate": lowdata,
             "lowprice": (lowprice),
             "hgigprice": (highprice),
-            "differ": '-'
+            "differ": differ
         }
 
-        # print(result)
         return result
